@@ -1,6 +1,7 @@
 // imports
 const express = require("express")
 const cors = require("cors")
+const path = require("path")
 
 const app = express()
 
@@ -18,17 +19,25 @@ app.get("/api", (req, res) => {
     res.send("welcome to my api") 
 })
 
-// Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dolevstore/dist/dolevstore'))
-
-app.get('/', function(req,res) {
-    
-    res.sendFile(path.join(__dirname+'/dist/dolevstore/index.html'));
-    });
+// Serve only the static files form the  directory
+app.use( express.static(path.join(__dirname + '/dolevstore')))
 
 
 
-const port = process.env.PORT  || 1000
 
+// app.get('/', (req,res)=> {
+//     res.sendFile(path.join(__dirname+'/dolevstore/index.html'));
+//     });
+
+app.get("/", (req,res)=>{
+   res.sendFile(path.join(__dirname+'/dolevstore/index.html'));
+})
+
+
+
+const port = process.env.PORT  || 8080
+console.log(port)
 // listening
-app.listen(port, () => { console.log("up and running on " + port) })
+app.listen(port, () => { console.log("up and running on " + port), 
+console.log(path.join(__dirname + '/dolevstore'))
+console.log(path.join(__dirname + '/dolevstore/index.html')) })
