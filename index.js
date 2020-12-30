@@ -14,12 +14,21 @@ app.use("/api/items", require("./routes/items"))
 app.use("/api/orders", require("./routes/orders"))
 app.use("/images", express.static("./images"))
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
     res.send("welcome to my api") 
 })
+
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dolevstore/dist/dolevstore'))
+
+app.get('/', function(req,res) {
+    
+    res.sendFile(path.join(__dirname+'/dist/dolevstore/index.html'));
+    });
+
 
 
 const port = process.env.PORT  || 1000
 
 // listening
-app.listen(port, () => { console.log("up and running on 1000") })
+app.listen(port, () => { console.log("up and running on " + port) })
