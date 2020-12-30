@@ -16,11 +16,11 @@ app.use("/api/orders", require("./routes/orders"))
 app.use("/images", express.static("./images"))
 
 app.get("/api", (req, res) => {
-    res.send("welcome to my api") 
+    res.send("welcome to my api")
 })
 
 // Serve only the static files form the  directory
-app.use( express.static(path.join(__dirname + '/dolevstore')))
+// app.use( express.static(path.join(__dirname + '/dolevstore')))
 
 
 
@@ -29,15 +29,16 @@ app.use( express.static(path.join(__dirname + '/dolevstore')))
 //     res.sendFile(path.join(__dirname+'/dolevstore/index.html'));
 //     });
 
-app.get("/", (req,res)=>{
-   res.sendFile(path.join(__dirname+'/dolevstore/index.html'));
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname + '/index.html'));
 })
 
 
 
-const port = process.env.PORT  || 8080
+const port = process.env.PORT || 8080
 console.log(port)
 // listening
-app.listen(port, () => { console.log("up and running on " + port), 
-console.log(path.join(__dirname + '/dolevstore'))
-console.log(path.join(__dirname + '/dolevstore/index.html')) })
+app.listen(port, () => {
+    console.log("up and running on " + port),
+    console.log(path.join(__dirname + '/index.html'))
+})
