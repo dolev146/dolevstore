@@ -15,7 +15,7 @@ app.use("/api/items", require("./routes/items"))
 app.use("/api/orders", require("./routes/orders"))
 app.use("/images", express.static("./images"))
 
-app.use("/", express.static("./dolevstore"))
+app.use("/", express.static("./dist"))
 
 app.get("/api", (req, res) => {
     res.send("welcome to my api")
