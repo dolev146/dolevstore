@@ -176,7 +176,7 @@ function validateDate(control) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\dolev\Documents\DolevHostedPtojects\angularproj\server\dolevstore\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Users\dolev\Documents\DolevHostedPtojects\angularproj\server\client\src\main.ts */"zUnb");
 
 
 /***/ }),

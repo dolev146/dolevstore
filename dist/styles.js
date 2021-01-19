@@ -7,8 +7,8 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\dolev\Documents\DolevHostedPtojects\angularproj\server\dolevstore\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"8jWO");
-module.exports = __webpack_require__(/*! C:\Users\dolev\Documents\DolevHostedPtojects\angularproj\server\dolevstore\src\styles.css */"OmL/");
+__webpack_require__(/*! C:\Users\dolev\Documents\DolevHostedPtojects\angularproj\server\client\node_modules\@angular\material\prebuilt-themes\indigo-pink.css */"8jWO");
+module.exports = __webpack_require__(/*! C:\Users\dolev\Documents\DolevHostedPtojects\angularproj\server\client\src\styles.css */"OmL/");
 
 
 /***/ }),

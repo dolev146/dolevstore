@@ -9,12 +9,12 @@ import { CheckoutmainpageComponent } from './components/checkout/checkoutmainpag
 import { CheckoutsuccessComponent } from './components/checkout/checkoutmainpage/checkoutsuccess/checkoutsuccess.component';
 
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "home" },
   { path: "home", component: HomepageComponent },
   { path: "register", component: RegisterComponent },
   { path: "buyingmainpage", component: BuyingmainpageComponent , canActivate : [AuthGuard] },
   { path: "checkoutmainpage", component: CheckoutmainpageComponent , canActivate : [AuthGuard] },
   { path: "checkoutsuccess", component: CheckoutsuccessComponent , canActivate : [AuthGuard] },
+  { path: "", pathMatch: "full", redirectTo: "home" },
   { path: "**", component: Eror404Component },
 ];
  
