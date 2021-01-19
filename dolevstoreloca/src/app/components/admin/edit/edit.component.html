@@ -1,0 +1,39 @@
+
+<form (ngSubmit)="onEdit()" name="EditForm" [formGroup]="admin.EditForm" style="width: 40vw; display: flex;flex-direction: column; justify-content: space-around;align-items: center;margin-top: 0.5rem;">
+    <mat-form-field style="width: 50%;" class="full-width" appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input type="text" formControlName="product_name" matInput required />
+        <mat-error *ngIf="admin.EditForm.get('product_name').errors?.required">
+             Product Name is Required 
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field style="width: 50%;" class="full-width" appearance="outline">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category_id" required>
+            <mat-option *ngFor="let Category of categories" [value]="Category.cID">
+              {{Category.cname}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="admin.EditForm.get('category_id').errors?.required">
+            Category is Required 
+         </mat-error>
+    </mat-form-field>
+    
+
+    <mat-form-field style="width: 50%;" class="full-width" appearance="outline">
+        <mat-label>Price</mat-label>
+        <input type="number" formControlName="price" matInput required />
+        <mat-error *ngIf="admin.EditForm.get('price').errors?.required">
+           Price is Required 
+        </mat-error>
+    </mat-form-field>
+    <mat-form-field style="width: 50%;" class="full-width" appearance="outline">
+        <mat-label>Image Url</mat-label>
+        <input formControlName="image_url" matInput required />
+        <mat-error *ngIf="admin.EditForm.get('image_url').errors?.required">
+            Image Url Required
+        </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" >Update Product</button>
+</form>

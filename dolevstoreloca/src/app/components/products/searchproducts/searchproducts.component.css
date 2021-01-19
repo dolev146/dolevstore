@@ -1,0 +1,29 @@
+.card {
+    width: 25vw;
+    height: 55vh;
+    margin-top: 1%;
+    margin-bottom: 1%;
+  }
+
+  .img{
+    height: 40vh;
+  }
+
+  .flex{
+    display: flex;
+     justify-content: space-around;
+     width: 88vw;
+      flex-wrap: wrap;
+      align-content: space-around;
+      overflow: hidden;
+  }
+
+.warninng{
+  border: 1px solid #ccc;
+  background-color: #ffdddd;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 0.01em 16px;
+  font-size: 15px;
+  line-height: 1.5; 
+}

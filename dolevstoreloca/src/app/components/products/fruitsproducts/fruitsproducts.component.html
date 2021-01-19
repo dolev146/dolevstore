@@ -1,0 +1,15 @@
+<div *ngIf="product?.AllProducts?.Vegetables_Fruits_Array.length !== 0" class="flex">
+    <mat-card *ngFor="let item of product?.AllProducts?.Vegetables_Fruits_Array" class="card">
+        <mat-card-header>
+            <mat-card-title>{{item.product_name | titlecase}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image class="img"  [src]="item.image_url" [alt]="item.product_name">
+        <mat-card-actions align="end">
+            <button *ngIf="login.loggedUser.role==='user'" (click)="AddToCart(item.product_id,item.price)" matTooltip="Add To Cart" color="primary" mat-fab><mat-icon>add_shopping_cart</mat-icon></button>
+            <button *ngIf="login.loggedUser.role==='admin'" (click)="editClicked(item)" matTooltip="Edit" color="primary" mat-fab><mat-icon>edit</mat-icon></button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+<div class="warninng" *ngIf="product?.AllProducts?.Vegetables_Fruits_Array.length === 0">
+    <h1 style="text-align: center;">This Category Is Empty </h1>
+</div>

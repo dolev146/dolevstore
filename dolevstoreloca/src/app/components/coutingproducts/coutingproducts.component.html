@@ -1,0 +1,11 @@
+<p class="mat-h3">Available products in our store: {{total_NumberOfProducts?.total_NumberOfProducts}}</p>
+<p class="mat-h3">Number of orders submitted in our store: {{total_NumberOfOrders?.total_NumberOfOrders}}</p>
+
+<div *ngIf="login.loggedUser.islogged">
+    <p>Notification:</p>
+    <p *ngIf="login.loggedUser.customerCartStatus === 'first_order'">Welcome {{login.loggedUser.fname}} </p>
+    <p *ngIf="login.loggedUser.customerCartStatus === 'new_cart'">your last purchase was on
+        {{login.loggedUser.last_day}} </p>
+    <p *ngIf="login.loggedUser.customerCartStatus === 'continue_cart'">you have an open cart
+        {{login.loggedUser.last_day}} </p>
+</div>

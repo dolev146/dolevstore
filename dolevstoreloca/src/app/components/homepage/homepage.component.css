@@ -1,0 +1,15 @@
+
+mat-grid-tile{
+    background-color: lightblue;
+}
+
+.helloguest{
+    text-align: right;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+
+.title{
+    font-size: 2rem;
+    margin-bottom: 0px;
+}

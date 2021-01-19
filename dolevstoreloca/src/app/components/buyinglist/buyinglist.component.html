@@ -1,0 +1,30 @@
+
+<div style="display: flex; justify-content: space-around;">
+    <button *ngIf="login.loggedUser.role==='user'" (click)="toggleSideNav()" matTooltip="Open Cart" mat-fab><mat-icon>shopping_cart</mat-icon></button>
+    <button *ngIf="login.loggedUser.role==='admin'" (click)="AddItem()" matTooltip="Add Item" mat-fab><mat-icon>add</mat-icon></button>
+
+
+
+
+
+    <mat-tab-group style="width: 90vw;" #tabRef [(selectedIndex)]="product.selectedTab" (selectedTabChange)="logChange(tabRef.selectedIndex)">
+        <mat-tab label="All">
+        <app-allproducts></app-allproducts>
+        </mat-tab>
+        <mat-tab label="Milk & Dairy">
+            <app-dairyproducts></app-dairyproducts>
+        </mat-tab>
+        <mat-tab label="Vegetables & Fruits">
+            <app-fruitsproducts></app-fruitsproducts>
+        </mat-tab>
+        <mat-tab label="Meat & Fish">
+            <app-meatproducts></app-meatproducts>
+        </mat-tab>
+        <mat-tab label="Wine & Drinks">
+            <app-wineproducts></app-wineproducts>
+        </mat-tab>
+        <mat-tab label="Search Results" [disabled]="search.matTabDisabled">
+            <app-searchproducts></app-searchproducts>
+        </mat-tab>
+      </mat-tab-group>
+</div>

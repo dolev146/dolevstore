@@ -1,0 +1,17 @@
+<mat-sidenav-container>
+    <mat-sidenav mode="over" [(opened)]="cart.isSideNavOpen">
+        <div *ngIf="login.loggedUser.role==='user'">
+            <h1 style="text-align: center;">My Cart</h1>
+            <mat-divider></mat-divider>
+            <app-buyingcarttable></app-buyingcarttable>
+        </div>
+        <div *ngIf="login.loggedUser.role==='admin'">
+            <h1 style="text-align: center;">Admin Interface</h1>
+            <mat-divider></mat-divider>
+            <app-main></app-main>
+        </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <app-buyinglist></app-buyinglist>
+    </mat-sidenav-content>
+</mat-sidenav-container>

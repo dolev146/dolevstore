@@ -1,0 +1,32 @@
+mat-card{
+   width: 25vw;
+   height: 60vh;
+   text-align: center;
+}
+
+.header{
+    text-align: center;
+}
+
+.full-width{
+    width: 80%;
+}
+
+.forgot-password{
+    padding-left:0px;
+}
+
+.email-input{
+    padding-top:10px;
+}
+
+.aLink{
+    float: right;
+    padding-right: 60px;
+    text-decoration: none;
+}
+
+.visibilityIcon{
+    cursor: pointer;
+}
+

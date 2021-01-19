@@ -1,0 +1,17 @@
+.contain_error404{
+    background-color:#95c2de ;
+    height: 89.4vh;
+}
+
+.mainbox{
+text-align: center;
+}
+
+.err{
+    font-size: 11rem;
+}
+
+.msg{
+    text-align: center;
+    font-size: 1.6rem;
+}

@@ -1,0 +1,64 @@
+<h1>Order</h1>
+<mat-divider></mat-divider>
+<div style="width: 90%; margin-left: 5%;margin-top: 1rem;">
+    <h3>Shipping Details</h3>
+    <mat-divider></mat-divider>
+    <form class="orderform" (ngSubmit)="onOrder()" name="orderForm" [formGroup]="orderForm">
+
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <input matTooltip="double click to import data" (dblclick)="getInputValue('city')" formControlName="city" matInput required />
+            <mat-error *ngIf="orderForm.get('city').errors?.required">
+                City is Required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Street</mat-label>
+            <input matTooltip="double click to import data" (dblclick)="getInputValue('street')" formControlName="street" matInput required />
+            <mat-error *ngIf="orderForm.get('street').errors?.required">
+                Street is Required
+            </mat-error>
+        </mat-form-field>
+
+        <!-- <mat-form-field appearance="outline">
+            <mat-label>Shipping Date</mat-label>
+            <input formControlName="date_for_delivery" matInput required />
+            <mat-error *ngIf="orderForm.get('date_for_delivery').errors?.required">
+                Shipping Date is Required
+            </mat-error>
+        </mat-form-field> -->
+
+        <mat-form-field appearance="outline">
+            <mat-label>Shipping Date</mat-label>
+            <input matInput
+             [matDatepicker]="date_for_delivery"
+             [matDatepickerFilter]="myFilter"
+            formControlName="date_for_delivery"
+            >
+            <mat-datepicker-toggle matSuffix [for]="date_for_delivery"></mat-datepicker-toggle>
+            <mat-datepicker #date_for_delivery></mat-datepicker>
+            <mat-error *ngIf="orderForm.get('date_for_delivery').errors?.required">
+                Shipping Date is Required
+            </mat-error>
+            <mat-error *ngIf="orderForm?.controls['matDatepickerFilter']?.hasError('matDatepickerFilter')">
+                Shipping Date is Invalid
+            </mat-error>
+          </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Four Digits of Credit Card</mat-label>
+            <input type="number" formControlName="four_digits" matInput required />
+            <mat-error *ngIf="orderForm?.controls['four_digits']?.errors?.minlength">
+                Credit Card at least 4 digist
+            </mat-error>
+            <mat-error *ngIf="orderForm.get('four_digits')?.errors?.required">
+                Credit Card is Required
+            </mat-error>
+        </mat-form-field>
+
+
+        <button [disabled]="orderForm.invalid" mat-raised-button color="primary">Order</button>
+
+    </form>
+</div>

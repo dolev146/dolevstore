@@ -1,0 +1,10 @@
+<form class="flexform" (ngSubmit)="onsearchItem()" name="searchItemForm" [formGroup]="searchItemForm" >
+    <mat-form-field class="full-width margin-left" appearance="outline">
+        <mat-label>search</mat-label>
+        <input formControlName="product_name" matInput required />
+        <mat-error *ngIf="searchItemForm.get('product_name').errors?.required">
+           Input is Required 
+        </mat-error>
+    </mat-form-field>
+    <button [disabled]="searchItemForm.invalid" mat-fab color="" class="margin-left" ><mat-icon>search</mat-icon></button>
+</form>

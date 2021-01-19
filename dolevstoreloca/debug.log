@@ -1,0 +1,4 @@
+[1214/215509.531:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1215/004215.782:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\dolev\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\2320a8f8-c99b-4ad7-bc06-b569b09926b1: The system cannot find the path specified. (0x3)
+[1215/201611.254:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\dolev\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0c811875-f3b2-43c4-9759-f48e1ad31f0f: The system cannot find the path specified. (0x3)
+[1218/232222.940:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

@@ -1,0 +1,114 @@
+<a routerLink="/home" mat-flat-button color="primary" style="margin-left: 70%; margin-top: 0.7%;">back to homepage</a>
+
+<form style="width: 70%; margin-left: 15%;" (ngSubmit)="onRegister()" name="registerForm" [formGroup]="registerForm">
+  <mat-horizontal-stepper linear>
+    <mat-step label="Sign in information" #StepOne [completed]="isComplited">
+
+      <div>
+        <mat-form-field class="width" appearance="outline">
+          <mat-label>ID</mat-label>
+          <input (change)="IDinputChange();" formControlName="customer_id" matInput required type="number" />
+          <mat-error *ngIf="registerForm.get('customer_id').errors?.required">
+            id is Required
+          </mat-error>
+          <div class="red" *ngIf="isIDTaken">
+            ID is already taken
+          </div>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input (change)="isStepFilled()" formControlName="email" matInput required />
+          <mat-error *ngIf="registerForm.get('email').errors?.required">
+            Required email adress
+          </mat-error>
+          <mat-error *ngIf="registerForm.get('email').errors?.email">
+            not valid email adress
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input (change)="isStepFilled()" formControlName="password" matInput required />
+          <mat-error *ngIf="registerForm.get('password').errors?.required">
+            password is Required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="width" appearance="outline">
+          <mat-label>Password Confirm</mat-label>
+          <input (change)="isStepFilled()" formControlName="passwordconfirm" matInput required />
+          <mat-error *ngIf="registerForm.get('passwordconfirm').errors?.required">
+            Password Confirm is Required
+          </mat-error>
+          <div class="red"
+            *ngIf="registerForm.controls.password.dirty && registerForm.controls.passwordconfirm.dirty && isPasswordsMatch">
+            passwords doesnt match
+          </div>
+        </mat-form-field>
+      </div>
+
+
+
+      <button mat-raised-button color="primary" matStepperNext [disabled]="!isComplited" type="button">Next</button>
+    </mat-step>
+
+    <mat-step label="Billing adress and name">
+
+      <div>
+        <mat-form-field class="width" appearance="outline">
+          <mat-label>City</mat-label>
+          <input formControlName="city" matInput required />
+          <mat-error *ngIf="registerForm.get('city').errors?.required">
+            city is Required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="width" appearance="outline">
+          <mat-label>Street</mat-label>
+          <input formControlName="street" matInput required />
+          <mat-error *ngIf="registerForm.get('street').errors?.required">
+            street is Required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="width" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="fname" matInput required />
+          <mat-error *ngIf="registerForm.get('fname').errors?.required">
+            name is Required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="width" appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input formControlName="lname" matInput required />
+          <mat-error *ngIf="registerForm.get('lname').errors?.required">
+            last name is Required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div style="display: flex; justify-content: space-around;">
+        <button mat-raised-button color="primary" matStepperPrevious type="button">
+          Back
+        </button>
+
+        <button mat-raised-button color="accent" [disabled]="!registerForm.valid">Register</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Add item to cart</h2>
+<form (ngSubmit)="onAddToCart()" name="addToCartForm" [formGroup]="addToCartForm">
+<mat-dialog-content>
+    <div style="margin-bottom: 0.02rem;">
+        Price : {{data.product_price | currency}}
+    </div>
+    <mat-form-field appearance="outline">
+        <mat-label>Quantity</mat-label>
+        <input type="number" formControlName="quantity" matInput required />
+        <mat-error *ngIf="addToCartForm.get('quantity').errors?.required">
+            Input is required
+        </mat-error>
+    </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+   
+    <button color="primary" [disabled]="addToCartForm.invalid" mat-raised-button >Add To Cart</button>
+    <button color="warn" type="button" mat-raised-button mat-dialog-close>Cancel</button>
+    
+</mat-dialog-actions>
+</form>
