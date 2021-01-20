@@ -35,8 +35,9 @@ app.get("/", (req, res) => {
 const port = process.env.PORT || 8080;
 console.log(port);
 
-app.use(function (req, res) {
-   res.sendFile(path.join(__dirname + "/index.html"));
+
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
 // listening
