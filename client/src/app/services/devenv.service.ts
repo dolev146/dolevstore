@@ -7,7 +7,7 @@ export class DevenvService {
 
   constructor() { }
 
-  localHostUrl = 'http://localhost';
+  localHostUrl = '';
 
 
 }

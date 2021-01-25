@@ -64,7 +64,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "" + ({"canvg":"canvg","dompurify":"dompurify","html2canvas":"html2canvas"}[chunkId]||chunkId) + ".js"
+/******/ 		return __webpack_require__.p + "" + ({"canvg":"canvg","dompurify":"dompurify"}[chunkId]||chunkId) + ".js"
 /******/ 	}
 /******/
 /******/ 	// The require function
