@@ -1,0 +1,13 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DevenvService {
+
+  constructor() { }
+
+  localHostUrl = 'http://localhost';
+
+
+}

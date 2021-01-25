@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { CountingproductsService } from './countingproducts.service'
 import jwt_decode from 'jwt-decode';
+import { DevenvService } from './devenv.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  constructor(private http: HttpClient, private count: CountingproductsService, public env : DevenvService ) { }
 
-  BaseUrl = "/api/customers/"
+  BaseUrl = this.env.localHostUrl + "/api/customers/"
 
-  constructor(private http: HttpClient, private count: CountingproductsService) { }
 
   loggedUser = {
     islogged: false,
@@ -39,7 +40,7 @@ export class LoginService {
   }
 
   StartResumeShopping(body) {
-    const url = "/api/homepage/startresumeshopping"
+    const url = this.env.localHostUrl + "/api/homepage/startresumeshopping"
     const httpOptions = {
       headers: {
         "Content-Type": "application/json",

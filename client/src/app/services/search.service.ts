@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { DevenvService } from './devenv.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , public env : DevenvService) { }
 
-  Url = "/api/products/searchproductbyname"
+  Url = this.env.localHostUrl + "/api/products/searchproductbyname"
 
   matTabDisabled: boolean = true;
 

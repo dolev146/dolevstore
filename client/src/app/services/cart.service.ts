@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { DevenvService } from './devenv.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient , public env : DevenvService) { }
 
   CartitmeTableArray = []
   totalPrice: number;
   isSideNavOpen: boolean = false
 
-  BaseUrl = "/api/items/"
+  BaseUrl = this.env.localHostUrl + "/api/items/"
 
   addToCart(body) {
     return this.http.post(this.BaseUrl + "addcartitem", body, {

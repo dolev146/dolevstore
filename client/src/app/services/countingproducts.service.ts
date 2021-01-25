@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { DevenvService } from './devenv.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CountingproductsService {
+  constructor(private http: HttpClient , public env : DevenvService ) { }
 
-  BaseUrl = "/api/homepage/"
+  BaseUrl = this.env.localHostUrl + "/api/homepage/"
 
-  constructor(private http: HttpClient) { }
 
   getAllNumberProducts() {
     return this.http.get(this.BaseUrl + "numberofproducts")

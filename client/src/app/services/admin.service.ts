@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { DevenvService } from './devenv.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
   EditForm: FormGroup
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public env : DevenvService) {
     this.EditForm = new FormGroup({
       product_name: new FormControl("", Validators.required),
       category_id: new FormControl("", Validators.required),
@@ -26,7 +27,7 @@ export class AdminService {
   }
 
   addProduct(body) {
-    return this.http.post('/api/products/' + "addproduct", body, {
+    return this.http.post(this.env.localHostUrl + '/api/products/' + "addproduct", body, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": localStorage.access_token

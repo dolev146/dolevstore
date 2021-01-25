@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DevenvService } from 'src/app/services/devenv.service';
 
 @Component({
   selector: 'app-why',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WhyComponent implements OnInit { 
 
-  constructor() { }
+  constructor(public env: DevenvService) { }
 
   ngOnInit(): void {
   }

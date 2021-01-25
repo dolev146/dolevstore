@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
+import { DevenvService } from './devenv.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CheckoutService {
 
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient , public env : DevenvService) { }
+  BaseUrl = this.env.localHostUrl + "/api/orders"
   checkoutTableArray;
   searchValueService = "";
   OccupiedDates = []
@@ -16,7 +17,7 @@ export class CheckoutService {
 
 
   getInputValueFromDoubleClick(body) {
-    let url = "/api/orders/getuserinformationbydoubleclick"
+    let url = this.BaseUrl +  "/getuserinformationbydoubleclick"
     return this.http.post(url, body, {
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +27,7 @@ export class CheckoutService {
   }
 
   PlaceTheOrder(body) {
-    let url = "/api/orders/placeorder"
+    let url = this.BaseUrl +  "/placeorder"
     return this.http.post(url, body, {
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +37,7 @@ export class CheckoutService {
   }
 
   getOccupiedDates() {
-    let url = "/api/orders/getoccupieddates"
+    let url = this.BaseUrl +  "/getoccupieddates"
     return this.http.get(url, {
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +48,7 @@ export class CheckoutService {
 
 
   getRecieptInformation(body) {
-    let url = "/api/orders/getrecieptinformation"
+    let url = this.BaseUrl + "/getrecieptinformation"
     return this.http.post(url, body, {
       headers: {
         "Content-Type": "application/json",
@@ -55,7 +56,4 @@ export class CheckoutService {
       }
     })
   }
-
-
-
 }
