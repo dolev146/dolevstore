@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../../../services/login.service'
 import { CartService } from '../../../../services/cart.service'
 import { CheckoutService } from '../../../../services/checkout.service'
 import { jsPDF } from 'jspdf';
+
 
 
 @Component({
@@ -13,11 +14,15 @@ import { jsPDF } from 'jspdf';
 })
 export class CheckoutsuccessComponent implements OnInit {
 
+  
+
   constructor(public router: Router,
     public login: LoginService,
     public checkout: CheckoutService,
     public cart: CartService
   ) { }
+ 
+ 
 
   ngOnInit(): void {
   }
@@ -116,6 +121,8 @@ export class CheckoutsuccessComponent implements OnInit {
 
 
 
+
+
 //   downloadPDF() {
 //     let doc = new jsPDF();
 //     let htmlElement2 = `<body>
@@ -171,5 +178,7 @@ export class CheckoutsuccessComponent implements OnInit {
 
 
 //   }
+  
+
 
 }

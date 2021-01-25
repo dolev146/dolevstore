@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CheckoutService } from '../../../../services/checkout.service'
@@ -6,13 +6,57 @@ import { LoginService } from '../../../../services/login.service'
 import { CartService } from '../../../../services/cart.service'
 import { validateDate } from 'src/app/validators/validateDate.validators';
 import { MatSnackBar } from '@angular/material/snack-bar'
+declare var paypal;
 
 @Component({
   selector: 'app-checkoutorder',
   templateUrl: './checkoutorder.component.html',
   styleUrls: ['./checkoutorder.component.css']
 })
-export class CheckoutorderComponent implements OnInit {
+export class CheckoutorderComponent implements OnInit , AfterViewInit {
+
+  @ViewChild('paypal', { static: false }) paypalElement:ElementRef;
+
+  product = {
+    price: 777.77,
+    description: 'used couch, decent condition',
+    img: 'http://localhost/images/logo.png'
+  }
+
+  paidFor = false; 
+
+   ngAfterViewInit() {
+     console.log(paypal)
+
+    paypal
+      .Buttons(
+        {
+          createOrder: (data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  description: this.product.description,
+                  amount: {
+                    currency_code: 'USD',
+                    value:this.product.price
+                  }
+                }
+              ]
+            }            
+            )
+          },
+          onApprove: async (data,actions) => {
+            const order = await actions.order.capture();
+            this.paidFor = true;
+            console.log(order);
+          },
+          onError: err => {
+            console.log(err)
+          }
+        }
+      )
+      .render(this.paypalElement.nativeElement);
+  }
 
   constructor(public router: Router,
     public checkout: CheckoutService,
@@ -52,6 +96,8 @@ export class CheckoutorderComponent implements OnInit {
       date_for_delivery: new FormControl('', [Validators.required, validateDate]),
       four_digits: new FormControl('', [Validators.required, Validators.minLength(4)])
     })
+
+   
   }
 
 
