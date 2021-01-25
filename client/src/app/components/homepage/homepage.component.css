@@ -1,15 +1,43 @@
-
-mat-grid-tile{
-    background-color: lightblue;
+mat-grid-tile {
+  background-color: lightblue;
 }
 
-.helloguest{
-    text-align: right;
-    margin-right: 50px;
-    margin-top: 5px;
+.helloguest {
+  text-align: right;
+  margin-right: 50px;
+  margin-top: 5px;
 }
 
-.title{
-    font-size: 2rem;
-    margin-bottom: 0px;
+.title {
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
+
+.hompage-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 20px;
+  margin-left: 2.5vw;
+  width: 95vw;
+}
+
+@media screen and (max-width: 500px) {
+  .hompage-grid-container {
+    width: 100vw;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "login"
+      "why"
+      "counting";
+  }
+  .login-component {
+    grid-area: login;
+  }
+  .why-component {
+    grid-area: why;
+  }
+  .counting-component {
+    grid-area: counting;
+  }
 }

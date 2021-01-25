@@ -8,8 +8,8 @@ import { LoginService } from '../../services/login.service'
 export class HomepageComponent implements OnInit {
 
   constructor(public login: LoginService) { }
-
+ 
   ngOnInit(): void {
   }
- 
+  
 }

@@ -1,6 +1,6 @@
 mat-card{
-   width: 25vw;
-   height: 60vh;
+   /* width: 25vw; */
+   /* height: 60vh; */
    text-align: center;
 }
 
@@ -30,3 +30,11 @@ mat-card{
     cursor: pointer;
 }
 
+
+.align-center-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}

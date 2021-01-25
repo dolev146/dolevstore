@@ -1,11 +1,14 @@
-
-<p style="font-size: 2rem;margin-bottom: 0px;margin-top: 1rem;" *ngIf="!login.loggedUser.islogged" class="helloguest">Hello Guest</p>
-<p style="font-size: 2rem;margin-bottom: 0px;margin-top: 1rem;" *ngIf="login.loggedUser.islogged" class="helloguest">Hello {{login.loggedUser.fname}}</p>
+<p style="font-size: 2rem;margin-bottom: 0px;margin-top: 1rem;" *ngIf="!login.loggedUser.islogged" class="helloguest">
+    Hello Guest</p>
+<p style="font-size: 2rem;margin-bottom: 0px;margin-top: 1rem;" *ngIf="login.loggedUser.islogged" class="helloguest">
+    Hello {{login.loggedUser.fname}}</p>
 <br>
 <br>
 <!-- rowHeight="100px" , rowHeight="2:1" , rowHeight="fit" style="height: 200px;" -->
-<mat-grid-list cols="3" rowHeight="fit" style="height: 70vh;" gutterSize="10px">
-    <mat-grid-tile colspan="1"><app-login></app-login></mat-grid-tile>
-    <mat-grid-tile colspan="1"><app-why></app-why></mat-grid-tile>
-    <mat-grid-tile colspan="1"><app-coutingproducts></app-coutingproducts></mat-grid-tile>
-</mat-grid-list>
+<!-- <mat-grid-list cols="3" rowHeight="fit" style="height: 70vh;" gutterSize="10px"> -->
+<div class="hompage-grid-container" >
+    <app-login class="login-component"></app-login>
+    <app-why class="why-component"></app-why>
+    <app-coutingproducts class="counting-component"></app-coutingproducts>
+</div>
+<!-- </mat-grid-list> -->
