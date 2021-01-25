@@ -38,3 +38,8 @@ mat-card{
     align-items: center;
     width: 100%;
 }
+
+.bolder-text{
+    background: lightblue;
+    font-weight: bold;
+}

@@ -1,6 +1,5 @@
 <p class="mat-h3">Available products in our store: {{total_NumberOfProducts?.total_NumberOfProducts}}</p>
 <p class="mat-h3">Number of orders submitted in our store: {{total_NumberOfOrders?.total_NumberOfOrders}}</p>
-
 <div *ngIf="login.loggedUser.islogged">
     <p>Notification:</p>
     <p *ngIf="login.loggedUser.customerCartStatus === 'first_order'">Welcome {{login.loggedUser.fname}} </p>
