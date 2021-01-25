@@ -1,8 +1,26 @@
-.flexorder{
-    width: 47%;border: black 2px solid;
-    min-height:70vh ;
+.flexorder {
+  width: 47%;
+  border: black 2px solid;
+  min-height: 70vh;
 }
 
-.give_me_space{
-    margin-left: 40%;margin-bottom: 0.5rem; margin-top: 0.5rem;
+.give_me_space {
+  margin-left: 40%;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.checkout-mainpage {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 500px) {
+  .checkout-mainpage {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+.flexorder {
+    width: 90%;
+}
 }

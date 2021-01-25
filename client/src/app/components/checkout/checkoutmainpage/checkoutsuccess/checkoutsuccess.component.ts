@@ -70,102 +70,106 @@ export class CheckoutsuccessComponent implements OnInit {
   htmlProducts
 
   getData() {
-    const dataOBj = {
-      cart_id: this.login.loggedUser.cart_id,
-      customer_id: this.login.loggedUser.customer_id,
-    }
-    this.checkout.getRecieptInformation(dataOBj).subscribe(
-      (res: any) => {
-        console.log(res)
-        this.order_id = res.order_details[0].order_id
-        this.total_price = res.order_details[0].total_price
-        this.city = res.order_details[0].city
-        this.street = res.order_details[0].street
-        this.date_for_delivery = res.order_details[0].date_for_delivery
-        this.date_of_purchase = res.order_details[0].date_of_purchase
-        this.four_digits = res.order_details[0].four_digits
-        this.fname = res.customer_details[0].fname
-        this.lname = res.customer_details[0].lname
-        this.products = res.cart_items
+    // const dataOBj = {
+    //   cart_id: this.login.loggedUser.cart_id,
+    //   customer_id: this.login.loggedUser.customer_id,
+    // }
+    // this.checkout.getRecieptInformation(dataOBj).subscribe(
+    //   (res: any) => {
+    //     console.log(res)
+    //     this.order_id = res.order_details[0].order_id
+    //     this.total_price = res.order_details[0].total_price
+    //     this.city = res.order_details[0].city
+    //     this.street = res.order_details[0].street
+    //     this.date_for_delivery = res.order_details[0].date_for_delivery
+    //     this.date_of_purchase = res.order_details[0].date_of_purchase
+    //     this.four_digits = res.order_details[0].four_digits
+    //     this.fname = res.customer_details[0].fname
+    //     this.lname = res.customer_details[0].lname
+    //     this.products = res.cart_items
 
-        this.htmlProducts = this.products.map(item => {
-          return (
-            `<tr>
-                <td>
-                    ${item.product_name}
-                </td>
-                <td>
-                ${item.quantity}
-                </td>
-                <td>
-                ${item.General_price}
-                </td>
-             </tr> 
-            `
-          )
-        })
-        this.downloadPDF()
-      },
-      err => console.log(err)
-    )
+    //     this.htmlProducts = this.products.map(item => {
+    //       return (
+    //         `<tr>
+    //             <td>
+    //                 ${item.product_name}
+    //             </td>
+    //             <td>
+    //             ${item.quantity}
+    //             </td>
+    //             <td>
+    //             ${item.General_price}
+    //             </td>
+    //          </tr> 
+    //         `
+    //       )
+    //     })
+    //     this.downloadPDF()
+    //   },
+    //   err => console.log(err)
+    // )
+
+    const doc = new jsPDF(); 
+    doc.addImage(this.checkout.canvasElement.toDataURL('image/png'), 0, 0, 190, this.checkout.canvasHeight)
+    doc.save("Recipt.pdf")
   }
 
 
 
-  downloadPDF() {
-    let doc = new jsPDF();
-    let htmlElement2 = `<body>
-                <h6>Order_number:${this.order_id}</h6>
-                <table>
-                <tr>
-                    <td>
-                      <h6>Name:${this.fname + "_" + this.lname}</h6>
-                    </td>
-                    <td>
-                      <h6>OrderD:${this.date_of_purchase}</h6>
-                    </td>
-                </tr>
-                <tr>
-                <td>
-                    <h6>Delivery:${this.date_for_delivery}</h6>
-                    </td>
-                </tr>                
-                <tr>
-                 <td>
-                    <h6>Adress:${this.city + " " + this.street}</h6>
-                    </td>
-                </tr>
-                <tr>
-                <td>
-                <h6>Digits${this.four_digits}</h6>
-               </td>
-                </tr>
-                </table>
-                <br/>
-                <br/>
-        <table>
-            <tr>
-                <td>item_Name</td>
-                <td>Qnt</td>
-                <td>Price</td>
-                ${this.htmlProducts}
-            </tr>
+//   downloadPDF() {
+//     let doc = new jsPDF();
+//     let htmlElement2 = `<body>
+//                 <h6>Order_number:${this.order_id}</h6>
+//                 <table>
+//                 <tr>
+//                     <td>
+//                       <h6>Name:${this.fname + "_" + this.lname}</h6>
+//                     </td>
+//                     <td>
+//                       <h6>OrderD:${this.date_of_purchase}</h6>
+//                     </td>
+//                 </tr>
+//                 <tr>
+//                 <td>
+//                     <h6>Delivery:${this.date_for_delivery}</h6>
+//                     </td>
+//                 </tr>                
+//                 <tr>
+//                  <td>
+//                     <h6>Adress:${this.city + " " + this.street}</h6>
+//                     </td>
+//                 </tr>
+//                 <tr>
+//                 <td>
+//                 <h6>Digits${this.four_digits}</h6>
+//                </td>
+//                 </tr>
+//                 </table>
+//                 <br/>
+//                 <br/>
+//         <table>
+//             <tr>
+//                 <td>item_Name</td>
+//                 <td>Qnt</td>
+//                 <td>Price</td>
+//                 ${this.htmlProducts}
+//             </tr>
           
-        </table>
-<br/>
-        <h6>Total_Price:${this.total_price}</h6>
-</body>
-`
+//         </table>
+// <br/>
+//         <h6>Total_Price:${this.total_price}</h6>
+// </body>
+// `
 
-    doc.html(htmlElement2, {
-      callback: function (doc) {
-        doc.save(`order.pdf`);
-      },
-      x: 10,
-      y: 10,
-    })
+//     doc.html(htmlElement2, {
+//       callback: function (doc) {
+//         doc.save(`order.pdf`);
+//       },
+//       x: 10,
+//       y: 10,
+//     })
 
 
-  }
+//   }
 
 }

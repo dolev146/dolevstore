@@ -1,9 +1,0 @@
-<form class="flexform" name="searchItemForm" [formGroup]="searchItemForm">
-    <mat-form-field class="margin-left" appearance="outline">
-        <mat-label>search</mat-label>
-        <input [ngModel]="mymodel" (ngModelChange)="valuechange($event)" formControlName="product_name" matInput required />
-        <mat-error *ngIf="searchItemForm.get('product_name').errors?.required">
-            Input is Required
-        </mat-error>
-    </mat-form-field>
-</form>

@@ -12,7 +12,7 @@ import { DialogaddComponent } from '../dialogadd/dialogadd.component';
   styleUrls: ['./allproducts.component.css']
 })
 export class AllproductsComponent implements OnInit {
-
+ 
   constructor(
     public product: ProductsService,
     public dialog: MatDialog,

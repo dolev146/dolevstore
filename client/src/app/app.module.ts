@@ -17,7 +17,6 @@ import { BuyinglistComponent } from './components/buyinglist/buyinglist.componen
 import { BuyingcartlistComponent } from './components/buyingcartlist/buyingcartlist.component';
 import { BuyingsearchComponent } from './components/buyingsearch/buyingsearch.component';
 import { BuyingmainpageComponent } from './components/buyingmainpage/buyingmainpage.component';
-import { CardlistComponent } from './components/cardlist/cardlist.component';
 import { AllproductsComponent } from './components/products/allproducts/allproducts.component';
 import { DairyproductsComponent } from './components/products/dairyproducts/dairyproducts.component';
 import { FruitsproductsComponent } from './components/products/fruitsproducts/fruitsproducts.component';
@@ -33,7 +32,6 @@ import { EditComponent } from './components/admin/edit/edit.component';
 import { AddComponent } from './components/admin/add/add.component';
 import { CheckouttableComponent } from './components/checkout/checkoutmainpage/checkouttable/checkouttable.component';
 import { CheckoutorderComponent } from './components/checkout/checkoutmainpage/checkoutorder/checkoutorder.component';
-import { CheckoutsearchComponent } from './components/checkout/checkoutmainpage/checkoutsearch/checkoutsearch.component';
 import { CheckoutsuccessComponent } from './components/checkout/checkoutmainpage/checkoutsuccess/checkoutsuccess.component';
 import { SafepipePipe } from './pipes/safepipe.pipe';
 
@@ -50,7 +48,6 @@ import { SafepipePipe } from './pipes/safepipe.pipe';
     BuyingcartlistComponent,
     BuyingsearchComponent,
     BuyingmainpageComponent,
-    CardlistComponent,
     AllproductsComponent,
     DairyproductsComponent,
     FruitsproductsComponent,
@@ -66,7 +63,6 @@ import { SafepipePipe } from './pipes/safepipe.pipe';
     AddComponent,
     CheckouttableComponent,
     CheckoutorderComponent,
-    CheckoutsearchComponent,
     CheckoutsuccessComponent,
     SafepipePipe
   ],

@@ -13,7 +13,8 @@ export class CheckoutService {
   searchValueService = "";
   OccupiedDates = []
   order_id: any;
-
+  canvasElement;
+  canvasHeight;
 
 
   getInputValueFromDoubleClick(body) {
