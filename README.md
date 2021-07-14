@@ -1,6 +1,6 @@
 # Dolevstore
 
-[Live Website](https://dolev-shufersal.herokuapp.com/home) 
+[Live Website](https://dolev-shufersals.herokuapp.com/home) 
 
 this is a store for selling stuff , done in coding class last project
 
